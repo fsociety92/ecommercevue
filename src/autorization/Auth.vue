@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="mt-8">
-                        <form>
+                      
                             <div>
                                 <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email Address</label>
                                 <input type="email" name="auth_email" value="a@example.com" placeholder="Write your email" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
@@ -42,11 +42,10 @@
                                 </button>
                             </div>
 
-                        </form>
+                      
 
                         <p class="mt-6 text-sm text-center text-gray-400">Don&#x27;t have an account yet? <my-button @click="dialogVisivle">Зарегестрироваться</my-button></p>
 
-                         
 
                         <my-dialog v-model:show="visiblDialog"></my-dialog>
 
@@ -96,20 +95,20 @@
 
 
 <script>
-import { provideClient, useMutation, useQuery } from "@urql/vue";
+// import { provideClient, useMutation, useQuery } from 'urql'
 import { ref } from "@vue/reactivity";
 import axios from "axios";
-
-
-
+    
 export default {
+ 
   setup() {
+
     const me_email = ref('') 
     const me_id = ref('')
 
     
     async function user_me () {
-       const { data } = await axios.get("http://38.242.229.113:8055/users/me", {
+       const { data } = await axios.post("http://38.242.229.113:8055/users/me", {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -126,11 +125,13 @@ export default {
       ).value;
       const email = document.querySelector("input[name=auth_email]").value;
       const data = { email: email, password: password };
-      const result = await axios.post(
+      const result = await axios
+      .post(
         "http://38.242.229.113:8055/auth/login",
         data
       );
-      localStorage.setItem("token", result.data.data.access_token);
+      console.log(result);
+      localStorage.setItem("token", result.data.data.access_token)
     }
     async function createUser() {
       const first = document.querySelector("input[name=first]").value;
