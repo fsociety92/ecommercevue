@@ -4,6 +4,7 @@ import urql from '@urql/vue';
 // import autorization from '@autorization/index.js'
 import App from './App.vue'
 import router from './router'
+import 'flowbite';
 
 const app = createApp(App)
 
