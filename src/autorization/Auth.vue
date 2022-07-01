@@ -105,8 +105,10 @@ export default {
 
     const me_email = ref('') 
     const me_id = ref('')
+    const status = [200, 201, 204]
+    const falsee = ["ERR_BAD_REQUEST"]
+    const visiblDialog = ref(true)
 
-    
     async function user_me () {
        const { data } = await axios.post("http://38.242.229.113:8055/users/me", {
         headers: {
@@ -117,6 +119,7 @@ export default {
       me_email.value = data.data.email
       me_id.value = data.data.id
     }
+
 
 
     async function getAuth() {
@@ -132,7 +135,16 @@ export default {
       );
       console.log(result);
       localStorage.setItem("token", result.data.data.access_token)
+      if (status.includes(result.status)) {
+        window.location.href = "/products";
+      }
+      if (falsee.includes(result.status)) {
+        console.log("Неверный логин или пароль");
+      }
     }
+
+
+    
     async function createUser() {
       const first = document.querySelector("input[name=first]").value;
       const last = document.querySelector("input[name=last]").value;

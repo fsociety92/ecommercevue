@@ -7,15 +7,15 @@
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/5 sm:text-3xl dark:text-gray-800 z-30">Iphone</span>
-                <img src="https://ua.news/wp-content/uploads/2021/12/4_to_3_Teaser_Apple_iPhone_13_Pro.jpg" class="block absolute top-1/2 left-1/2  -translate-x-1/2 -translate-y-32" alt="...">
+                <img src="https://ua.news/wp-content/uploads/2021/12/4_to_3_Teaser_Apple_iPhone_13_Pro.jpg" class="block w-1/2 absolute top-1/2 left-1/2  -translate-x-1/2 -translate-y-32" alt="...">
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://www.apple.com/v/watch/at/images/meta/gps-lte/og__n5qzveqr596m.png" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                <img src="https://1.bp.blogspot.com/-AWyT4yg-D_0/YL6jGh7gDrI/AAAAAAAAKtc/1Yxa9ehUG0QkRFZarIBrenGOSxqkON--QCNcBGAsYHQ/s16000/watchos-8.jpg" class="w-1/2 block absolute top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
             <!-- Item 3 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiLVVdHXC2a_Njm-FSl3sGynHEsMJqivVHubS9Q4PlWR0shIvMg-OspAi93ceQHQZ67Ak&usqp=CAU" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                <img src="https://ilounge.ua/files/articles/sravnenie-airpods-3-chto-vybrat-7.jpg" class="block absolute w-1/2 top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2" alt="...">
             </div>
         </div>
         <!-- Slider indicators -->

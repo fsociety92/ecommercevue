@@ -27,7 +27,7 @@
             <div class="flex flex-col px-2 md:flex-row">
                  <a href="/products" class="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2">Products</a>
                 <a href="/products" class="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2">Categories</a>
-                <a href="#" class="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2">Contact</a>
+                <a href="/cart" class="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2">Contact</a>
             </div>
             <div class=" flex item-center">
                 <input type="text" class="w-full px-4 py-3 mx-4 leading-tight text-sm text-gray-400 bg-gray-900 rounded placeholder-gray-200 focus:outline-none focus:shadow-outline" placeholder="search">
@@ -35,7 +35,7 @@
                 <router-link to="/auth">
                  <button @click="basket" class="hidden text-gray-900 hover:text-gray-700 md:block">
                     <div class="">
-                        <img key="basket" class="" src="https://img.icons8.com/ios/50/000000/shopping-cart.png" alt="">
+                        <img key="basket" class="w-12 h-12" src="https://img.icons8.com/ios/50/000000/shopping-cart.png" alt="">
                     </div>
                 </button>
                 </router-link>
@@ -47,13 +47,19 @@
 </template>
 
 <script>
+// import { useQuery, gql, useMutation } from "@urql/vue";
+// import {ref} from 'vue'
 
 export default {
 
-
   setup() {
+  
 
-   
+
+    // const basket = () => {
+    //   this.$router.push('/basket')
+    // }
+
 
     // const basket = () => {
     //   this.$router.push('/auth')

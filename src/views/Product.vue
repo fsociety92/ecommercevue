@@ -34,7 +34,7 @@
 
 
 <section>
-  <div v-if="data" class="relative max-w-screen-xl px-4 py-8 mx-auto flex">
+  <div v-if="data" id="todo" class="relative max-w-screen-xl px-4 py-8 mx-auto grid grid-cols-2 grid-rows-2	">
   
    
          
@@ -47,10 +47,10 @@
       
 
 
-      <div class="sticky top-0">
+      <div class=" top-0 ">
         <strong class="border border-blue-600 rounded-full tracking-wide px-3 font-medium py-0.5 text-xs bg-gray-100 text-blue-600"> Pre Order </strong>
 
-        <div class="flex justify-between mt-8">
+        <div class="flex justify-between mt-8"> 
           <div class="max-w-[35ch]">
             <h1 class="text-2xl font-bold">
              {{ data.products_by_id.title }}
@@ -224,15 +224,21 @@
             </div>
 
             <button
+              @click="addToCart(data.products_by_id)"
               type="submit"
               class="block px-5 py-3 ml-3 text-xs font-medium text-white bg-green-600 rounded hover:bg-green-500"
             >
               Add to Cart
             </button>
+              <button  @click = "addToFav"
+              type="submit"
+              class="block px-5 py-3 ml-3 text-xs font-medium text-white bg-green-600 rounded hover:bg-green-500">Add to favorites</button>
           </div>
+         
         </form>
       </div>
     </div>
+   
   
 </section>
 
@@ -246,14 +252,18 @@
 </template>
 
 <script>
-import { useQuery } from "@urql/vue";
+import { useQuery, gql, useMutation } from "@urql/vue";
 import { useRouter, useRoute } from 'vue-router'
+import axios from "axios";
+import { addToCart } from '../utils/cart'
 
 export default {
   setup() {
     const router = useRouter();
     const route = useRoute();
-    const id = +route.params.id;
+    
+    const storeItemSubscribers = {};
+    const id =+ route.params.id;
     const result = useQuery({
       query: `
         query getProduct($id: ID!) {
@@ -269,15 +279,35 @@ export default {
           }
         }
       `, variables: { id }
-    });
+    },
+    );
+
+      async function addFav(id) {
+      const i = id
+      const a = parseInt(i)
+      const u = "518c6ae4-9919-4f5c-a494-81a4c8e562a3"
+      const variables = { ProductId: a, UserId: u }
+      add.executeMutation(variables).then((result) => {
+        if (result.error) {
+          console.error("Oh no!", result.error);
+        }
+      });
+    }
+   
+
+
+
     return {
       fetching: result.fetching,
       data: result.data,
       error: result.error,
-      route
+      route,
+      addFav,
+      addToCart,
     }
   },
 };
+
 </script>
 
 <style scoped> 
